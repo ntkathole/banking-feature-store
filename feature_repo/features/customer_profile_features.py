@@ -36,11 +36,11 @@ customer_behavioral_profile = FeatureView(
         "data_classification": "confidential",
         "pii": "true",
         "business_impact": "high",
-        "use_cases": "behavior_prediction,customer_segmentation,targeting",
+        "use_cases": "behavior_prediction,customer_segmentation,targeting,fraud_detection",
         "refresh_frequency": "weekly",
         "compliance": "gdpr_ccpa_compliant",
         "feature_engineering": "behavioral_clustering_scoring",
-        "model_usage": "behavior_prediction,customer_charter,marketing_targeting"
+        "model_usage": "behavior_prediction,customer_charter,marketing_targeting,fraud_detection"
     },
     description="Customer behavioral profile features for segmentation and targeting. Uses basic demographic and account data to analyze customer behavior patterns. Includes age, income, credit score, account tenure, risk profile, and customer segment for behavioral analysis."
 )

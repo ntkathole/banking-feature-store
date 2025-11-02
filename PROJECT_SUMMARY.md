@@ -70,9 +70,13 @@ This comprehensive Feast banking feature store demonstrates how to implement a p
 
 ### 4. Transaction Prediction Service
 - **Purpose**: Classify transactions and detect fraud
-- **Features**: Demographics, transaction patterns, ATM usage
-- **SLA**: Real-time
+- **Features**: Demographics, transaction patterns, ATM usage, transaction details
+- **SLA**: Real-time (under 50ms response time)
 - **Business Impact**: Critical
+- **Owner**: risk_fraud_team@bank.com
+- **Use Cases**: Transaction prediction, Fraud detection
+- **Compliance**: PCI DSS, AML compliant
+- **Business KPIs**: Fraud detection rate, false positive rate, transaction approval rate
 
 ### 5. Comprehensive Banking Service
 - **Purpose**: Multi-purpose analytics and model training

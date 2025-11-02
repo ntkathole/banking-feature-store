@@ -12,6 +12,7 @@ This project demonstrates a comprehensive Feast feature store implementation for
 2. **Customer Behavior Prediction**: Predict spending patterns and financial needs
 3. **Call Prediction Model**: Predict likelihood of customer service calls
 4. **Transaction Type Prediction**: Classify transactions and detect fraud
+5. **Fraud Detection**: Real-time fraud detection and prevention (Owner: risk_fraud_team@bank.com)
 
 ## Project Structure
 ```

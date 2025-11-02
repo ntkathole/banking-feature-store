@@ -184,7 +184,7 @@ transaction_prediction_service = FeatureService(
     tags={
         "team": "risk_fraud",
         "owner": "risk_fraud_team@bank.com",
-        "use_case": "transaction_prediction",
+        "use_case": "transaction_prediction,fraud_detection",
         "model_type": "classification",
         "target": "transaction_type",
         "business_impact": "critical",
@@ -195,8 +195,10 @@ transaction_prediction_service = FeatureService(
         "refresh_frequency": "real_time",
         "model_versions": "v2.0,v2.1,v2.2",
         "performance_metrics": "accuracy,precision,recall,f1_score,auc",
-        "business_kpi": "fraud_detection_rate",
-        "regulatory_requirement": "aml_compliance",
+        "business_kpi": "fraud_detection_rate,false_positive_rate,transaction_approval_rate",
+        "regulatory_requirement": "aml_compliance,pci_dss_compliance",
+        "alert_threshold": "high_risk_score_0.8",
+        "response_time_sla": "under_50ms",
         "description": "Features for transaction type prediction and fraud detection"
     },
     description="Feature service for transaction type prediction model for fraud detection and transaction classification. Combines customer demographics, transaction patterns, velocity metrics, and behavioral indicators to detect fraudulent transactions and classify transaction types. Critical for real-time fraud prevention and AML compliance."
