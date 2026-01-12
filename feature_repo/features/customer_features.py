@@ -27,7 +27,7 @@ customer_demographics_fv = FeatureView(
                 "data_classification": "confidential",
                 "pii": "true",
                 "business_impact": "medium",
-                "use_case": "risk_assessment,customer_segmentation",
+                "use_case": "risk_assessment+customer_segmentation",
                 "refresh_frequency": "monthly",
                 "compliance": "gdpr_compliant",
                 "validation_rules": "age_18_to_100",
@@ -44,7 +44,7 @@ customer_demographics_fv = FeatureView(
                 "data_classification": "confidential",
                 "pii": "true",
                 "business_impact": "high",
-                "use_case": "credit_assessment,product_recommendation",
+                "use_case": "credit_assessment+product_recommendation",
                 "refresh_frequency": "quarterly",
                 "compliance": "gdpr_ccpa_compliant",
                 "validation_rules": "income_positive",
@@ -61,11 +61,11 @@ customer_demographics_fv = FeatureView(
                 "data_classification": "confidential",
                 "pii": "true",
                 "business_impact": "critical",
-                "use_case": "credit_assessment,loan_approval,fraud_detection",
+                "use_case": "credit_assessment+loan_approval+fraud_detection",
                 "refresh_frequency": "monthly",
                 "compliance": "fcra_compliant",
                 "validation_rules": "score_300_to_850",
-                "business_kpi": "loan_approval_rate,default_rate"
+                "business_kpi": "loan_approval_rate+default_rate"
             }
         ),
     ],
@@ -77,12 +77,12 @@ customer_demographics_fv = FeatureView(
         "data_classification": "confidential",
         "pii": "true",
         "business_impact": "high",
-        "use_case": "customer_charter,risk_assessment,product_recommendation,fraud_detection",
-        "model_usage": "customer_segmentation,credit_assessment,demographic_analysis,fraud_detection",
+        "use_case": "customer_charter+risk_assessment+product_recommendation+fraud_detection",
+        "model_usage": "customer_segmentation+credit_assessment+demographic_analysis+fraud_detection",
         "refresh_frequency": "monthly",
         "compliance": "gdpr_ccpa_fcra_compliant",
-        "performance_metrics": "accuracy_95_percent,coverage_98_percent",
-        "business_kpi": "customer_risk_score,product_approval_rate"
+        "performance_metrics": "accuracy_95_percent+coverage_98_percent",
+        "business_kpi": "customer_risk_score+product_approval_rate"
     },
     description="Customer demographic information including age, income, and credit score. Essential for customer charter modeling, risk assessment, and product recommendations. Contains PII and requires GDPR/CCPA compliance."
 )

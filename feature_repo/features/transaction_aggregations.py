@@ -29,7 +29,7 @@ transaction_7d_aggregations = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "critical",
-                "use_case": "fraud_detection,risk_assessment",
+                "use_case": "fraud_detection+risk_assessment",
                 "refresh_frequency": "real_time",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "amount_non_negative",
@@ -46,7 +46,7 @@ transaction_7d_aggregations = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "fraud_detection,type_classification",
+                "use_case": "fraud_detection+type_classification",
                 "refresh_frequency": "real_time",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "type_valid_enum",
@@ -63,7 +63,7 @@ transaction_7d_aggregations = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "fraud_detection,spending_analysis",
+                "use_case": "fraud_detection+spending_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "mcc_valid",
@@ -80,7 +80,7 @@ transaction_7d_aggregations = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "critical",
-                "use_case": "fraud_detection,model_training",
+                "use_case": "fraud_detection+model_training",
                 "refresh_frequency": "real_time",
                 "compliance": "pci_dss_aml_compliant",
                 "validation_rules": "boolean_valid",
@@ -97,7 +97,7 @@ transaction_7d_aggregations = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "fraud_detection,geographic_analysis",
+                "use_case": "fraud_detection+geographic_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "location_valid",
@@ -115,11 +115,11 @@ transaction_7d_aggregations = FeatureView(
         "business_impact": "critical",
         "aggregation_window": "7d",
         "use_case": "fraud_detection",
-        "model_usage": "real_time_fraud_detection,transaction_monitoring",
+        "model_usage": "real_time_fraud_detection+transaction_monitoring",
         "refresh_frequency": "real_time",
         "compliance": "pci_dss_aml_compliant",
-        "performance_metrics": "latency_under_100ms,accuracy_95_percent",
-        "business_kpi": "fraud_prevention_rate,false_positive_rate"
+        "performance_metrics": "latency_under_100ms+accuracy_95_percent",
+        "business_kpi": "fraud_prevention_rate+false_positive_rate"
     },
     description="7-day transaction aggregations with statistical transformations and risk indicators for real-time fraud detection. Includes normalized features, behavioral patterns, and risk indicators to identify suspicious transactions within a 7-day rolling window."
 )
@@ -141,11 +141,11 @@ transaction_30d_aggregations = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "behavior_prediction,spending_analysis",
+                "use_case": "behavior_prediction+spending_analysis",
                 "refresh_frequency": "daily",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "amount_non_negative",
-                "business_kpi": "spending_accuracy,revenue_prediction"
+                "business_kpi": "spending_accuracy+revenue_prediction"
             }
         ),
         Field(
@@ -158,7 +158,7 @@ transaction_30d_aggregations = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "behavior_prediction,type_analysis",
+                "use_case": "behavior_prediction+type_analysis",
                 "refresh_frequency": "daily",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "type_valid_enum",
@@ -175,7 +175,7 @@ transaction_30d_aggregations = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "behavior_prediction,spending_analysis",
+                "use_case": "behavior_prediction+spending_analysis",
                 "refresh_frequency": "daily",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "mcc_valid",
@@ -192,7 +192,7 @@ transaction_30d_aggregations = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "behavior_prediction,risk_assessment",
+                "use_case": "behavior_prediction+risk_assessment",
                 "refresh_frequency": "daily",
                 "compliance": "pci_dss_aml_compliant",
                 "validation_rules": "boolean_valid",
@@ -209,7 +209,7 @@ transaction_30d_aggregations = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "medium",
-                "use_case": "behavior_prediction,geographic_analysis",
+                "use_case": "behavior_prediction+geographic_analysis",
                 "refresh_frequency": "daily",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "location_valid",
@@ -226,12 +226,12 @@ transaction_30d_aggregations = FeatureView(
         "pii": "false",
         "business_impact": "high",
         "aggregation_window": "30d",
-        "use_case": "behavior_prediction,fraud_detection",
-        "model_usage": "customer_segmentation,behavior_prediction,personalization,fraud_detection",
+        "use_case": "behavior_prediction+fraud_detection",
+        "model_usage": "customer_segmentation+behavior_prediction+personalization+fraud_detection",
         "refresh_frequency": "daily",
         "compliance": "pci_dss_compliant",
-        "performance_metrics": "accuracy_90_percent,coverage_95_percent",
-        "business_kpi": "customer_engagement,retention_rate,upsell_success"
+        "performance_metrics": "accuracy_90_percent+coverage_95_percent",
+        "business_kpi": "customer_engagement+retention_rate+upsell_success"
     },
     description="30-day transaction aggregations for customer behavior analysis and segmentation. Provides trend analysis, customer segmentation features, payment method preferences, and merchant category analysis to understand customer spending patterns and preferences."
 )
@@ -253,11 +253,11 @@ transaction_90d_patterns = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "compliance_monitoring,long_term_analysis",
+                "use_case": "compliance_monitoring+long_term_analysis",
                 "refresh_frequency": "weekly",
                 "compliance": "aml_bsa_compliant",
                 "validation_rules": "amount_non_negative",
-                "business_kpi": "compliance_score,regulatory_reporting_accuracy"
+                "business_kpi": "compliance_score+regulatory_reporting_accuracy"
             }
         ),
         Field(
@@ -270,7 +270,7 @@ transaction_90d_patterns = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "compliance_monitoring,type_analysis",
+                "use_case": "compliance_monitoring+type_analysis",
                 "refresh_frequency": "weekly",
                 "compliance": "aml_bsa_compliant",
                 "validation_rules": "type_valid_enum",
@@ -287,7 +287,7 @@ transaction_90d_patterns = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "compliance_monitoring,spending_analysis",
+                "use_case": "compliance_monitoring+spending_analysis",
                 "refresh_frequency": "weekly",
                 "compliance": "aml_bsa_compliant",
                 "validation_rules": "mcc_valid",
@@ -304,11 +304,11 @@ transaction_90d_patterns = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "critical",
-                "use_case": "compliance_monitoring,aml_monitoring",
+                "use_case": "compliance_monitoring+aml_monitoring",
                 "refresh_frequency": "weekly",
                 "compliance": "aml_bsa_compliant",
                 "validation_rules": "boolean_valid",
-                "business_kpi": "aml_compliance_rate,fraud_prevention_rate"
+                "business_kpi": "aml_compliance_rate+fraud_prevention_rate"
             }
         ),
         Field(
@@ -321,7 +321,7 @@ transaction_90d_patterns = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "compliance_monitoring,geographic_analysis",
+                "use_case": "compliance_monitoring+geographic_analysis",
                 "refresh_frequency": "weekly",
                 "compliance": "aml_bsa_compliant",
                 "validation_rules": "location_valid",
@@ -338,12 +338,12 @@ transaction_90d_patterns = FeatureView(
         "pii": "false",
         "business_impact": "high",
         "aggregation_window": "90d",
-        "use_case": "compliance_monitoring,fraud_detection",
-        "model_usage": "aml_monitoring,compliance_reporting,risk_assessment,fraud_detection",
+        "use_case": "compliance_monitoring+fraud_detection",
+        "model_usage": "aml_monitoring+compliance_reporting+risk_assessment+fraud_detection",
         "refresh_frequency": "weekly",
         "compliance": "aml_bsa_compliant",
-        "performance_metrics": "detection_rate_85_percent,false_positive_rate_5_percent",
-        "business_kpi": "compliance_score,regulatory_reporting_accuracy"
+        "performance_metrics": "detection_rate_85_percent+false_positive_rate_5_percent",
+        "business_kpi": "compliance_score+regulatory_reporting_accuracy"
     },
     description="90-day transaction patterns for long-term customer insights and compliance monitoring. Analyzes seasonal patterns, customer lifecycle indicators, and risk assessment features for AML compliance and regulatory reporting."
 )

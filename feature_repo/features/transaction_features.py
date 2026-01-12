@@ -29,11 +29,11 @@ transaction_details = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "critical",
-                "use_case": "fraud_detection,risk_assessment,transaction_approval",
+                "use_case": "fraud_detection+risk_assessment+transaction_approval",
                 "refresh_frequency": "real_time",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "amount_non_negative",
-                "business_kpi": "fraud_prevention_rate,transaction_accuracy"
+                "business_kpi": "fraud_prevention_rate+transaction_accuracy"
             }
         ),
         Field(
@@ -46,11 +46,11 @@ transaction_details = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "fraud_detection,type_classification",
+                "use_case": "fraud_detection+type_classification",
                 "refresh_frequency": "real_time",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "type_valid_enum",
-                "business_kpi": "classification_accuracy,type_validation"
+                "business_kpi": "classification_accuracy+type_validation"
             }
         ),
         Field(
@@ -63,11 +63,11 @@ transaction_details = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "fraud_detection,spending_analysis",
+                "use_case": "fraud_detection+spending_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "mcc_valid",
-                "business_kpi": "category_accuracy,spending_validation"
+                "business_kpi": "category_accuracy+spending_validation"
             }
         ),
         Field(
@@ -80,11 +80,11 @@ transaction_details = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "fraud_detection,geographic_analysis",
+                "use_case": "fraud_detection+geographic_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "pci_dss_compliant",
                 "validation_rules": "location_valid",
-                "business_kpi": "location_accuracy,geographic_validation"
+                "business_kpi": "location_accuracy+geographic_validation"
             }
         ),
         Field(
@@ -97,11 +97,11 @@ transaction_details = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "critical",
-                "use_case": "fraud_detection,model_training",
+                "use_case": "fraud_detection+model_training",
                 "refresh_frequency": "real_time",
                 "compliance": "pci_dss_aml_compliant",
                 "validation_rules": "boolean_valid",
-                "business_kpi": "fraud_accuracy,model_performance"
+                "business_kpi": "fraud_accuracy+model_performance"
             }
         ),
     ],
@@ -114,11 +114,11 @@ transaction_details = FeatureView(
         "pii": "false",
         "business_impact": "critical",
         "use_case": "fraud_detection",
-        "model_usage": "real_time_fraud_detection,transaction_monitoring,risk_assessment",
+        "model_usage": "real_time_fraud_detection+transaction_monitoring+risk_assessment",
         "refresh_frequency": "real_time",
         "compliance": "pci_dss_aml_compliant",
-        "performance_metrics": "latency_under_50ms,accuracy_96_percent",
-        "business_kpi": "fraud_prevention_rate,false_positive_rate,transaction_approval_rate"
+        "performance_metrics": "latency_under_50ms+accuracy_96_percent",
+        "business_kpi": "fraud_prevention_rate+false_positive_rate+transaction_approval_rate"
     },
     description="Transaction-level features for fraud detection and risk assessment. Provides real-time transaction details, risk indicators, behavioral flags, and processing metrics to enable immediate fraud detection and transaction approval decisions."
 )
@@ -130,11 +130,11 @@ customer_transaction_interaction = FeatureView(
     ttl=timedelta(days=30),
     schema=[
         # Basic transaction data (only columns that exist in the data)
-        Field(name="amount", dtype=Float64, description="Transaction amount in USD", tags={"owner": "risk_fraud_team@bank.com", "domain": "transaction", "data_classification": "confidential", "pii": "false", "business_impact": "critical", "use_case": "fraud_detection,risk_assessment", "refresh_frequency": "real_time", "compliance": "pci_dss_compliant", "validation_rules": "amount_non_negative", "business_kpi": "fraud_prevention_rate"}),
-        Field(name="transaction_type", dtype=String, description="Type of transaction", tags={"owner": "risk_fraud_team@bank.com", "domain": "transaction", "data_classification": "confidential", "pii": "false", "business_impact": "high", "use_case": "fraud_detection,type_classification", "refresh_frequency": "real_time", "compliance": "pci_dss_compliant", "validation_rules": "type_valid_enum", "business_kpi": "classification_accuracy"}),
-        Field(name="merchant_category", dtype=String, description="Merchant category", tags={"owner": "risk_fraud_team@bank.com", "domain": "transaction", "data_classification": "confidential", "pii": "false", "business_impact": "high", "use_case": "fraud_detection,spending_analysis", "refresh_frequency": "real_time", "compliance": "pci_dss_compliant", "validation_rules": "mcc_valid", "business_kpi": "category_accuracy"}),
-        Field(name="is_fraud", dtype=Bool, description="Fraud indicator flag", tags={"owner": "risk_fraud_team@bank.com", "domain": "fraud", "data_classification": "confidential", "pii": "false", "business_impact": "critical", "use_case": "fraud_detection,model_training", "refresh_frequency": "real_time", "compliance": "pci_dss_aml_compliant", "validation_rules": "boolean_valid", "business_kpi": "fraud_accuracy"}),
-        Field(name="location", dtype=String, description="Transaction location", tags={"owner": "risk_fraud_team@bank.com", "domain": "transaction", "data_classification": "confidential", "pii": "false", "business_impact": "high", "use_case": "fraud_detection,geographic_analysis", "refresh_frequency": "real_time", "compliance": "pci_dss_compliant", "validation_rules": "location_valid", "business_kpi": "location_accuracy"}),
+        Field(name="amount", dtype=Float64, description="Transaction amount in USD", tags={"owner": "risk_fraud_team@bank.com", "domain": "transaction", "data_classification": "confidential", "pii": "false", "business_impact": "critical", "use_case": "fraud_detection+risk_assessment", "refresh_frequency": "real_time", "compliance": "pci_dss_compliant", "validation_rules": "amount_non_negative", "business_kpi": "fraud_prevention_rate"}),
+        Field(name="transaction_type", dtype=String, description="Type of transaction", tags={"owner": "risk_fraud_team@bank.com", "domain": "transaction", "data_classification": "confidential", "pii": "false", "business_impact": "high", "use_case": "fraud_detection+type_classification", "refresh_frequency": "real_time", "compliance": "pci_dss_compliant", "validation_rules": "type_valid_enum", "business_kpi": "classification_accuracy"}),
+        Field(name="merchant_category", dtype=String, description="Merchant category", tags={"owner": "risk_fraud_team@bank.com", "domain": "transaction", "data_classification": "confidential", "pii": "false", "business_impact": "high", "use_case": "fraud_detection+spending_analysis", "refresh_frequency": "real_time", "compliance": "pci_dss_compliant", "validation_rules": "mcc_valid", "business_kpi": "category_accuracy"}),
+        Field(name="is_fraud", dtype=Bool, description="Fraud indicator flag", tags={"owner": "risk_fraud_team@bank.com", "domain": "fraud", "data_classification": "confidential", "pii": "false", "business_impact": "critical", "use_case": "fraud_detection+model_training", "refresh_frequency": "real_time", "compliance": "pci_dss_aml_compliant", "validation_rules": "boolean_valid", "business_kpi": "fraud_accuracy"}),
+        Field(name="location", dtype=String, description="Transaction location", tags={"owner": "risk_fraud_team@bank.com", "domain": "transaction", "data_classification": "confidential", "pii": "false", "business_impact": "high", "use_case": "fraud_detection+geographic_analysis", "refresh_frequency": "real_time", "compliance": "pci_dss_compliant", "validation_rules": "location_valid", "business_kpi": "location_accuracy"}),
     ],
     source=transaction_source,
     tags={
@@ -144,12 +144,12 @@ customer_transaction_interaction = FeatureView(
         "data_classification": "confidential",
         "pii": "false",
         "business_impact": "high",
-        "use_case": "behavior_analysis,fraud_detection",
-        "model_usage": "behavior_analysis,risk_assessment,customer_segmentation,fraud_detection",
+        "use_case": "behavior_analysis+fraud_detection",
+        "model_usage": "behavior_analysis+risk_assessment+customer_segmentation+fraud_detection",
         "refresh_frequency": "daily",
         "compliance": "pci_dss_compliant",
-        "performance_metrics": "accuracy_89_percent,coverage_94_percent",
-        "business_kpi": "risk_mitigation,customer_behavior_insights,transaction_pattern_analysis"
+        "performance_metrics": "accuracy_89_percent+coverage_94_percent",
+        "business_kpi": "risk_mitigation+customer_behavior_insights+transaction_pattern_analysis"
     },
     description="Customer-Transaction interaction features for behavior analysis and risk assessment. Uses basic transaction data including amount, type, merchant category, fraud indicator, and location to understand customer behavior and assess transaction risks."
 )

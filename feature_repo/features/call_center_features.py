@@ -29,7 +29,7 @@ call_center_90d = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "call_prediction,type_analysis",
+                "use_case": "call_prediction+type_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "type_valid_enum",
@@ -46,7 +46,7 @@ call_center_90d = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "medium",
-                "use_case": "call_prediction,efficiency_analysis",
+                "use_case": "call_prediction+efficiency_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "duration_non_negative",
@@ -63,7 +63,7 @@ call_center_90d = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "call_prediction,resolution_analysis",
+                "use_case": "call_prediction+resolution_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "time_non_negative",
@@ -80,7 +80,7 @@ call_center_90d = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "call_prediction,resolution_analysis",
+                "use_case": "call_prediction+resolution_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "boolean_valid",
@@ -97,7 +97,7 @@ call_center_90d = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "call_prediction,satisfaction_analysis",
+                "use_case": "call_prediction+satisfaction_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "score_1_to_5",
@@ -114,7 +114,7 @@ call_center_90d = FeatureView(
                 "data_classification": "confidential",
                 "pii": "false",
                 "business_impact": "high",
-                "use_case": "call_prediction,escalation_analysis",
+                "use_case": "call_prediction+escalation_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "level_1_to_5",
@@ -132,11 +132,11 @@ call_center_90d = FeatureView(
         "business_impact": "high",
         "aggregation_window": "90d",
         "use_case": "call_prediction",
-        "model_usage": "call_prediction,customer_service_optimization,resource_planning",
+        "model_usage": "call_prediction+customer_service_optimization+resource_planning",
         "refresh_frequency": "daily",
         "compliance": "operational_data",
-        "performance_metrics": "accuracy_87_percent,coverage_93_percent",
-        "business_kpi": "call_volume_prediction,customer_satisfaction,operational_efficiency"
+        "performance_metrics": "accuracy_87_percent+coverage_93_percent",
+        "business_kpi": "call_volume_prediction+customer_satisfaction+operational_efficiency"
     },
     description="90-day call center interaction patterns and metrics for call prediction and customer service optimization. Tracks call frequency, type analysis, duration metrics, resolution rates, satisfaction scores, and escalation patterns to predict call volumes and optimize service delivery."
 )
@@ -148,7 +148,7 @@ call_center_predictive = FeatureView(
     ttl=timedelta(days=180),
     schema=[
         # Basic call center data (only columns that exist in the data)
-        Field(name="call_type", dtype=String, description="Type of call made by customer", tags={"owner": "customer_experience_team@bank.com", "domain": "call_center", "data_classification": "confidential", "pii": "false", "business_impact": "high", "use_case": "call_prediction,type_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "type_valid_enum", "business_kpi": "type_accuracy"}),
+        Field(name="call_type", dtype=String, description="Type of call made by customer", tags={"owner": "customer_experience_team@bank.com", "domain": "call_center", "data_classification": "confidential", "pii": "false", "business_impact": "high", "use_case": "call_prediction+type_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "type_valid_enum", "business_kpi": "type_accuracy"}),
         Field(name="call_duration_minutes", dtype=Float64, description="Duration of call in minutes", tags={"owner": "customer_experience_team@bank.com", "domain": "call_center", "data_classification": "confidential", "pii": "false", "business_impact": "medium", "use_case": "efficiency_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "duration_non_negative", "business_kpi": "efficiency_accuracy"}),
         Field(name="resolution_time_hours", dtype=Float64, description="Time to resolve issue in hours", tags={"owner": "customer_experience_team@bank.com", "domain": "call_center", "data_classification": "confidential", "pii": "false", "business_impact": "high", "use_case": "resolution_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "time_non_negative", "business_kpi": "resolution_accuracy"}),
         Field(name="is_resolved", dtype=Bool, description="Whether the call was resolved", tags={"owner": "customer_experience_team@bank.com", "domain": "call_center", "data_classification": "confidential", "pii": "false", "business_impact": "high", "use_case": "resolution_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "boolean_valid", "business_kpi": "resolution_rate"}),
@@ -165,11 +165,11 @@ call_center_predictive = FeatureView(
         "business_impact": "high",
         "aggregation_window": "180d",
         "use_case": "proactive_service",
-        "model_usage": "proactive_outreach,customer_retention,service_optimization",
+        "model_usage": "proactive_outreach+customer_retention+service_optimization",
         "refresh_frequency": "weekly",
         "compliance": "operational_data",
-        "performance_metrics": "accuracy_82_percent,coverage_88_percent",
-        "business_kpi": "customer_retention,proactive_resolution_rate,service_quality"
+        "performance_metrics": "accuracy_82_percent+coverage_88_percent",
+        "business_kpi": "customer_retention+proactive_resolution_rate+service_quality"
     },
     description="Call center predictive features for proactive customer service and retention. Uses basic call center data including call type, duration, resolution time, resolution status, satisfaction score, and escalation level to enable proactive outreach and service optimization."
 )

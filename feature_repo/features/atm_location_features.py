@@ -29,7 +29,7 @@ atm_location_performance = FeatureView(
                 "data_classification": "internal",
                 "pii": "false",
                 "business_impact": "medium",
-                "use_case": "atm_optimization,withdrawal_analysis",
+                "use_case": "atm_optimization+withdrawal_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "amount_non_negative",
@@ -46,7 +46,7 @@ atm_location_performance = FeatureView(
                 "data_classification": "internal",
                 "pii": "false",
                 "business_impact": "medium",
-                "use_case": "atm_optimization,time_analysis",
+                "use_case": "atm_optimization+time_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "time_valid",
@@ -63,7 +63,7 @@ atm_location_performance = FeatureView(
                 "data_classification": "internal",
                 "pii": "false",
                 "business_impact": "medium",
-                "use_case": "atm_optimization,pattern_analysis",
+                "use_case": "atm_optimization+pattern_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "day_valid",
@@ -80,7 +80,7 @@ atm_location_performance = FeatureView(
                 "data_classification": "internal",
                 "pii": "false",
                 "business_impact": "medium",
-                "use_case": "atm_optimization,weekend_analysis",
+                "use_case": "atm_optimization+weekend_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "boolean_valid",
@@ -97,7 +97,7 @@ atm_location_performance = FeatureView(
                 "data_classification": "internal",
                 "pii": "false",
                 "business_impact": "medium",
-                "use_case": "atm_optimization,location_analysis",
+                "use_case": "atm_optimization+location_analysis",
                 "refresh_frequency": "real_time",
                 "compliance": "operational_data",
                 "validation_rules": "zone_valid",
@@ -114,11 +114,11 @@ atm_location_performance = FeatureView(
         "pii": "false",
         "business_impact": "medium",
         "use_case": "atm_optimization",
-        "model_usage": "atm_placement,network_optimization,infrastructure_planning",
+        "model_usage": "atm_placement+network_optimization+infrastructure_planning",
         "refresh_frequency": "daily",
         "compliance": "operational_data",
-        "performance_metrics": "accuracy_83_percent,coverage_89_percent",
-        "business_kpi": "atm_utilization,operational_efficiency,network_performance"
+        "performance_metrics": "accuracy_83_percent+coverage_89_percent",
+        "business_kpi": "atm_utilization+operational_efficiency+network_performance"
     },
     description="ATM location performance metrics for infrastructure optimization and network planning. Tracks usage metrics, performance indicators, location characteristics, and operational metrics to optimize ATM placement and network efficiency."
 )
@@ -130,11 +130,11 @@ customer_atm_interaction = FeatureView(
     ttl=timedelta(days=60),
     schema=[
         # Basic ATM usage data (only columns that exist in the data)
-        Field(name="withdrawal_amount", dtype=Float64, description="Amount withdrawn from ATM", tags={"owner": "operations_team@bank.com", "domain": "atm", "data_classification": "internal", "pii": "false", "business_impact": "medium", "use_case": "atm_optimization,withdrawal_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "amount_non_negative", "business_kpi": "withdrawal_accuracy"}),
-        Field(name="time_of_day", dtype=String, description="Time of day when ATM was used", tags={"owner": "operations_team@bank.com", "domain": "atm", "data_classification": "internal", "pii": "false", "business_impact": "medium", "use_case": "atm_optimization,time_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "time_valid", "business_kpi": "time_accuracy"}),
-        Field(name="day_of_week", dtype=String, description="Day of week when ATM was used", tags={"owner": "operations_team@bank.com", "domain": "atm", "data_classification": "internal", "pii": "false", "business_impact": "medium", "use_case": "atm_optimization,pattern_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "day_valid", "business_kpi": "pattern_accuracy"}),
-        Field(name="is_weekend", dtype=Bool, description="Whether the ATM usage was on weekend", tags={"owner": "operations_team@bank.com", "domain": "atm", "data_classification": "internal", "pii": "false", "business_impact": "medium", "use_case": "atm_optimization,weekend_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "boolean_valid", "business_kpi": "weekend_accuracy"}),
-        Field(name="atm_zone", dtype=String, description="Zone where ATM is located", tags={"owner": "operations_team@bank.com", "domain": "atm", "data_classification": "internal", "pii": "false", "business_impact": "medium", "use_case": "atm_optimization,location_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "zone_valid", "business_kpi": "location_accuracy"}),
+        Field(name="withdrawal_amount", dtype=Float64, description="Amount withdrawn from ATM", tags={"owner": "operations_team@bank.com", "domain": "atm", "data_classification": "internal", "pii": "false", "business_impact": "medium", "use_case": "atm_optimization+withdrawal_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "amount_non_negative", "business_kpi": "withdrawal_accuracy"}),
+        Field(name="time_of_day", dtype=String, description="Time of day when ATM was used", tags={"owner": "operations_team@bank.com", "domain": "atm", "data_classification": "internal", "pii": "false", "business_impact": "medium", "use_case": "atm_optimization+time_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "time_valid", "business_kpi": "time_accuracy"}),
+        Field(name="day_of_week", dtype=String, description="Day of week when ATM was used", tags={"owner": "operations_team@bank.com", "domain": "atm", "data_classification": "internal", "pii": "false", "business_impact": "medium", "use_case": "atm_optimization+pattern_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "day_valid", "business_kpi": "pattern_accuracy"}),
+        Field(name="is_weekend", dtype=Bool, description="Whether the ATM usage was on weekend", tags={"owner": "operations_team@bank.com", "domain": "atm", "data_classification": "internal", "pii": "false", "business_impact": "medium", "use_case": "atm_optimization+weekend_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "boolean_valid", "business_kpi": "weekend_accuracy"}),
+        Field(name="atm_zone", dtype=String, description="Zone where ATM is located", tags={"owner": "operations_team@bank.com", "domain": "atm", "data_classification": "internal", "pii": "false", "business_impact": "medium", "use_case": "atm_optimization+location_analysis", "refresh_frequency": "real_time", "compliance": "operational_data", "validation_rules": "zone_valid", "business_kpi": "location_accuracy"}),
     ],
     source=atm_source,
     tags={
@@ -144,12 +144,12 @@ customer_atm_interaction = FeatureView(
         "data_classification": "internal",
         "pii": "false",
         "business_impact": "medium",
-        "use_case": "location_optimization,fraud_detection",
-        "model_usage": "personalized_service,location_optimization,customer_behavior_analysis,fraud_detection",
+        "use_case": "location_optimization+fraud_detection",
+        "model_usage": "personalized_service+location_optimization+customer_behavior_analysis+fraud_detection",
         "refresh_frequency": "weekly",
         "compliance": "operational_data",
-        "performance_metrics": "accuracy_81_percent,coverage_87_percent",
-        "business_kpi": "customer_satisfaction,location_efficiency,service_personalization"
+        "performance_metrics": "accuracy_81_percent+coverage_87_percent",
+        "business_kpi": "customer_satisfaction+location_efficiency+service_personalization"
     },
     description="Customer-ATM location interaction features for personalized service and location optimization. Uses basic ATM usage data including withdrawal amount, time of day, day of week, weekend flag, and ATM zone to enhance service delivery and optimize ATM network."
 )
