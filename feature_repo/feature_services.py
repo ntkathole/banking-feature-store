@@ -355,6 +355,31 @@ risk_compliance_service = FeatureService(
 )
 
 # =============================================================================
+# BENCHMARK FEATURE SERVICE
+# =============================================================================
+
+# Benchmark Feature Service — 29 features across 6 customer-keyed views
+# Designed to match industry benchmarks (~20 features, single entity type)
+benchmark_customer_service = FeatureService(
+    name="benchmark_customer_service",
+    features=[
+        customer_demographics_fv,
+        customer_behavioral_profile,
+        transaction_7d_aggregations,
+        transaction_30d_aggregations,
+        transaction_90d_patterns,
+        atm_usage_30d,
+    ],
+    tags={
+        "team": "data_platform",
+        "owner": "data_platform_team@bank.com",
+        "use_case": "benchmark",
+        "description": "Benchmark service with 29 features across 6 customer-keyed views",
+    },
+    description="Benchmark feature service for performance testing. Groups 29 features across 6 customer-entity views to match industry-standard feature store benchmarks.",
+)
+
+# =============================================================================
 # ON-DEMAND FEATURE SERVICES
 # =============================================================================
 
