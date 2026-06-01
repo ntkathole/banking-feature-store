@@ -3,11 +3,13 @@ Shared data sources for the banking feature store
 This file contains all data source definitions that can be reused across different feature views
 """
 from feast import FileSource
+from feast.data_format import ParquetFormat
 
 # Customer data source
 customer_source = FileSource(
     name="customer_data_source",
     path="data/customers.parquet",
+    file_format=ParquetFormat(),
     timestamp_field="created_timestamp",
     description="Customer demographic and profile data including age, income, credit score, account tenure, risk profile, and customer segmentation. Contains PII and is used across all customer-centric use cases.",
     tags={
@@ -27,6 +29,7 @@ customer_source = FileSource(
 transaction_source = FileSource(
     name="transaction_data_source",
     path="data/transactions.parquet",
+    file_format=ParquetFormat(),
     timestamp_field="event_timestamp",
     description="Customer transaction data with amounts, types, merchant information, and fraud indicators. Critical for fraud detection, AML compliance, and transaction pattern analysis. Contains sensitive financial data.",
     tags={
@@ -46,6 +49,7 @@ transaction_source = FileSource(
 atm_source = FileSource(
     name="atm_usage_data_source",
     path="data/atm_usage.parquet",
+    file_format=ParquetFormat(),
     timestamp_field="event_timestamp",
     description="ATM usage data including withdrawal amounts, locations, time patterns, and customer behavior. Used for ATM optimization, location analytics, and customer convenience analysis.",
     tags={
@@ -65,6 +69,7 @@ atm_source = FileSource(
 branch_source = FileSource(
     name="branch_details_data_source",
     path="data/branch_visits.parquet",
+    file_format=ParquetFormat(),
     timestamp_field="event_timestamp",
     description="Branch visit data including service usage, wait times, satisfaction scores, and customer interactions. Critical for branch optimization, service improvement, and customer experience analytics.",
     tags={
@@ -84,6 +89,7 @@ branch_source = FileSource(
 call_center_source = FileSource(
     name="call_center_data_source",
     path="data/call_center.parquet",
+    file_format=ParquetFormat(),
     timestamp_field="event_timestamp",
     description="Call center interaction data including call types, duration, resolution, satisfaction scores, and escalation patterns. Essential for call prediction, customer service optimization, and proactive outreach.",
     tags={
