@@ -23,7 +23,12 @@ def generate_customer_data():
         'customer_segment': np.random.choice(['PREMIUM', 'STANDARD', 'BASIC'], n_customers, p=[0.2, 0.6, 0.2]),
         'city': np.random.choice(['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'], n_customers),
         'state': np.random.choice(['NY', 'CA', 'IL', 'TX', 'AZ'], n_customers),
-        'created_timestamp': pd.date_range('2020-01-01', periods=n_customers, freq='1D', tz='UTC')
+        'created_timestamp': pd.date_range(
+            datetime.now(tz=timezone.utc) - timedelta(days=90),
+            periods=n_customers,
+            freq='130min',
+            tz='UTC'
+        )
     }
     
     # Ensure credit score is within valid range
