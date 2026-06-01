@@ -3,7 +3,7 @@ Generate sample banking data for Feast demo
 """
 import pandas as pd
 import numpy as np
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import os
 
 # Set random seed for reproducibility
@@ -23,7 +23,7 @@ def generate_customer_data():
         'customer_segment': np.random.choice(['PREMIUM', 'STANDARD', 'BASIC'], n_customers, p=[0.2, 0.6, 0.2]),
         'city': np.random.choice(['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'], n_customers),
         'state': np.random.choice(['NY', 'CA', 'IL', 'TX', 'AZ'], n_customers),
-        'created_timestamp': pd.date_range('2020-01-01', periods=n_customers, freq='1D')
+        'created_timestamp': pd.date_range('2020-01-01', periods=n_customers, freq='1D', tz='UTC')
     }
     
     # Ensure credit score is within valid range
@@ -36,10 +36,9 @@ def generate_transaction_data():
     n_transactions = 50000
     customer_ids = [f'CUST_{i:06d}' for i in range(1, 1001)]
     
-    # Generate timestamps over the last 90 days
-    end_date = datetime.now()
+    end_date = datetime.now(tz=timezone.utc)
     start_date = end_date - timedelta(days=90)
-    timestamps = pd.date_range(start_date, end_date, periods=n_transactions)
+    timestamps = pd.date_range(start_date, end_date, periods=n_transactions, tz='UTC')
     
     data = {
         'customer_id': np.random.choice(customer_ids, n_transactions),
@@ -66,18 +65,21 @@ def generate_atm_usage_data():
     customer_ids = [f'CUST_{i:06d}' for i in range(1, 1001)]
     atm_locations = [f'ATM_{i:03d}' for i in range(1, 51)]
     
-    # Generate timestamps over the last 60 days
-    end_date = datetime.now()
+    end_date = datetime.now(tz=timezone.utc)
     start_date = end_date - timedelta(days=60)
-    timestamps = pd.date_range(start_date, end_date, periods=n_atm_usage)
+    timestamps = pd.date_range(start_date, end_date, periods=n_atm_usage, tz='UTC')
+
+    hours = np.random.randint(0, 24, n_atm_usage)
+    days = np.random.randint(0, 7, n_atm_usage)
+    weekends = np.random.choice([0, 1], n_atm_usage, p=[0.7, 0.3])
     
     data = {
         'customer_id': np.random.choice(customer_ids, n_atm_usage),
         'atm_id': np.random.choice(atm_locations, n_atm_usage),
         'withdrawal_amount': np.random.lognormal(4, 1, n_atm_usage),
-        'time_of_day': np.random.randint(0, 24, n_atm_usage),
-        'day_of_week': np.random.randint(0, 7, n_atm_usage),
-        'is_weekend': np.random.choice([0, 1], n_atm_usage, p=[0.7, 0.3]),
+        'time_of_day': [str(h) for h in hours],
+        'day_of_week': [['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][d] for d in days],
+        'is_weekend': [bool(w) for w in weekends],
         'atm_zone': np.random.choice(['DOWNTOWN', 'SUBURBAN', 'AIRPORT', 'MALL'], n_atm_usage),
         'event_timestamp': timestamps
     }
@@ -93,10 +95,9 @@ def generate_branch_visit_data():
     customer_ids = [f'CUST_{i:06d}' for i in range(1, 1001)]
     branch_ids = [f'BRANCH_{i:03d}' for i in range(1, 21)]
     
-    # Generate timestamps over the last 120 days
-    end_date = datetime.now()
+    end_date = datetime.now(tz=timezone.utc)
     start_date = end_date - timedelta(days=120)
-    timestamps = pd.date_range(start_date, end_date, periods=n_visits)
+    timestamps = pd.date_range(start_date, end_date, periods=n_visits, tz='UTC')
     
     data = {
         'customer_id': np.random.choice(customer_ids, n_visits),
@@ -123,10 +124,9 @@ def generate_call_center_data():
     n_calls = 12000
     customer_ids = [f'CUST_{i:06d}' for i in range(1, 1001)]
     
-    # Generate timestamps over the last 90 days
-    end_date = datetime.now()
+    end_date = datetime.now(tz=timezone.utc)
     start_date = end_date - timedelta(days=90)
-    timestamps = pd.date_range(start_date, end_date, periods=n_calls)
+    timestamps = pd.date_range(start_date, end_date, periods=n_calls, tz='UTC')
     
     data = {
         'customer_id': np.random.choice(customer_ids, n_calls),
