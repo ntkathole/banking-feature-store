@@ -370,6 +370,7 @@ benchmark_customer_service = FeatureService(
         transaction_90d_patterns,
         atm_usage_30d,
     ],
+    precompute_online=True,
     tags={
         "team": "data_platform",
         "owner": "data_platform_team@bank.com",
